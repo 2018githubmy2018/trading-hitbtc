@@ -108,8 +108,7 @@ class aa1_daten_hilfe_class():
             wort_zelle  = []
             for j in np.arange(kalame):
                 # hier sollte noch eine schleife kommen mit count_of_values als range. aber ich war faul und habe 5 Sätze gesetzt. 
-                horuf_zelle  = [] 
-                horuf_zelle.append(data_btc[j+i]*1)
+                horuf_zelle = [data_btc[j+i] * 1]
                 test_target_hilfe += int(data_btc[j+i]*1)
         
                 horuf_zelle.append(data_btc[j+i]*2)
@@ -145,10 +144,7 @@ class aa1_daten_hilfe_class():
         return prozent
     def get_polar(mutter,kind):
         polar = 0 
-        if mutter >kind:
-            polar = -1
-        else:
-            polar = 1
+        polar = -1 if mutter >kind else 1
         return polar
     def ema (all_close, data_count, ema1, ema2):
         ema_satz = [all_close[0]]
@@ -181,10 +177,7 @@ class aa1_daten_hilfe_class():
         counter = 0
         fehler = 0
         for wert in results:
-            if wert >= 0.25:
-                wert = 1
-            else:
-                wert = 0
+            wert = 1 if wert >= 0.25 else 0
             if wert != y_test[counter]:
                 fehler += 1
             counter += 1
